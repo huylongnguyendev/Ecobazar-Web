@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,5 +7,38 @@
     border: none;
     outline: none;
     list-style: none;
+    font-family: "Poppins", sans-serif;
     text-decoration: none;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.container {
+    max-width: 1920px;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.rounded {
+    border-radius: 100%;
+}
+
+.round-xl {
+    border-radius: 2.4rem;
+}
+
+.round-lg {
+    border-radius: 1.2rem;
+}
+
+.round-md {
+    border-radius: .8rem;
+}
+
+.round-sm {
+    border-radius: .4rem;
 }

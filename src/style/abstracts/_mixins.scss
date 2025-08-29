@@ -1,0 +1,27 @@
+@mixin flexBox($justify, $items: center, $wrap: nowrap) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $items;
+    flex-wrap: $wrap;
+}
+
+@mixin inlineFlex($justify: center, $items: center) {
+    display: inline-flex;
+    justify-content: $justify;
+    align-items: $items;
+}
+
+@mixin squareBox($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+@mixin content($position, $index) {
+    content: "";
+    position: $position;
+    z-index: $index;
+}
+
+@mixin transition($prop: all, $duaration: .3s, $func: ease, $delay: 0) {
+    transition: $prop $duaration $func $delay;
+}

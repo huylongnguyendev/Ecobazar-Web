@@ -1,0 +1,53 @@
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/colors" as colors;
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+
+    &-top {
+        @include mixins.flexBox(center);
+        background: colors.$primary;
+        color: colors.$white;
+        padding: 1.2rem 0;
+
+        &--right {
+            display: none;
+
+        }
+    }
+
+    &-bot {
+        padding: 1.2rem;
+        background: colors.$gray-100;
+
+        .search-form {
+            box-shadow: 0 0 1rem colors.$gray-400;
+            overflow: hidden;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .header {
+        &-top {
+            @include mixins.flexBox(space-between);
+            background: colors.$primary;
+            color: colors.$white;
+            padding: 1.2rem 6rem;
+
+            &--right {
+                @include mixins.flexBox(center);
+
+            }
+        }
+
+        &-bot {
+            padding: 1.2rem 24rem;
+
+
+        }
+    }
+}

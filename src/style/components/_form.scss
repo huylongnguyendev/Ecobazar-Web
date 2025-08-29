@@ -1,0 +1,39 @@
+@use "../abstracts/mixins" as mixins;
+@use "../abstracts/colors" as colors;
+
+.input-area {
+    position: relative;
+    
+    .icon, .btn-close, .btn-primary {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .icon {
+        @include mixins.squareBox(2.4rem);
+        @include mixins.inlineFlex();
+        left: .5rem;
+    }
+
+    .input-field {
+        @include mixins.squareBox(100%);
+        padding: 1.2rem 15.6rem 1.2rem 3.2rem;
+        font-size: inherit;
+        border: 1px solid colors.$gray-100;
+        
+        &:focus {
+            color: colors.$primary;
+            border-color: colors.$primary;
+        }
+    }
+
+    .btn-close {
+        right: 12.6rem;
+    }
+
+    .btn-primary {
+        right: 0;
+    }
+}
+
