@@ -20,12 +20,39 @@
     }
 
     &-bot {
+        @include mixins.transition();
+        position: absolute;
+        top: -100%;
+        left: 0;
+        z-index: -10;
         padding: 1.2rem;
         background: colors.$gray-100;
 
         .search-form {
             box-shadow: 0 0 1rem colors.$gray-400;
             overflow: hidden;
+
+            .input-area {
+                .btn-close {
+                    @include mixins.transition();
+                    visibility: hidden;
+                    opacity: 0;
+
+                    &.show {
+                        visibility: visible;
+                        opacity: 1;
+                    }
+                }
+
+                .btn-primary {
+                    border-top-left-radius: 0;
+                    border-bottom-left-radius: 0;
+                }
+            }
+        }
+
+        &.show {
+            top: 100%;
         }
     }
 }
@@ -46,8 +73,14 @@
 
         &-bot {
             padding: 1.2rem 24rem;
+        }
+    }
+}
 
-
+@media screen and (min-width: 1024px) {
+    .header {
+        &-bot {
+            position: static;
         }
     }
 }

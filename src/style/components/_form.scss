@@ -18,7 +18,7 @@
 
     .input-field {
         @include mixins.squareBox(100%);
-        padding: 1.2rem 15.6rem 1.2rem 3.2rem;
+        padding: 1rem 15.6rem 1rem 3.2rem;
         font-size: inherit;
         border: 1px solid colors.$gray-100;
         

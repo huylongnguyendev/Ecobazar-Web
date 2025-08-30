@@ -1,12 +1,14 @@
+import HeaderBot from "../HeaderBot.js"
 import NavigationItem from "./NavigationItem.js"
 
 const Navigation = () => {
     const navItem = NavigationItem()
+    const headerBot = HeaderBot()
     const nav = document.createElement("nav")
     nav.className = "nav w-full text-base font-medium capitalize"
 
-    const handleNav = () => {
-        navItem.classList.toggle("show")
+    const handleRemove = (block) => {
+        block.classList.remove("show")
     }
 
     const brand = {
@@ -22,7 +24,7 @@ const Navigation = () => {
     const iconContainer = document.createElement("div")
     iconContainer.className = "nav-btns text-lg"
     const iconNames = ["search", "shopping-bag-2", "user", "menu-4"]
-    const togglePostion = iconNames.indexOf("menu-4")
+
     iconNames.map(name => {
         const icon = document.createElement("i")
         icon.className = `ri-${name}-line btn btn-icon rounded`
@@ -35,16 +37,20 @@ const Navigation = () => {
     navList.map(item => {
         nav.appendChild(item)
     })
-    console.log(togglePostion)
 
-    const toggleBtn = iconContainer.children[togglePostion]
+    const toggleBtn = iconContainer.querySelector("#menu-4-btn")
 
-    toggleBtn.addEventListener("click", handleNav)
+    toggleBtn.addEventListener("click", () => {
+        navItem.classList.toggle("show")
+    })
 
     document.addEventListener("click", (event) => {
         if (!navItem.contains(event.target) && !toggleBtn.contains(event.target))
-        navItem.classList.remove("show")
+            handleRemove(navItem)
+        if (!headerBot.contains(event.target) && !searchBtn.contains(event.target))
+            handleRemove(headerBot)
     })
+
 
     return nav
 }
